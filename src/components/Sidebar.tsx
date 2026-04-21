@@ -17,6 +17,7 @@ const NAV: NavItem[] = [
   { href: "/games/sequencing", label: "Electricity Journey", icon: "⚡" },
   { href: "/games/matching", label: "Switch Match", icon: "🔘" },
   { href: "/games/sentence", label: "Finish the Sentence", icon: "✍️" },
+  { href: "/games/safety", label: "Working Safely", icon: "🛡️" },
 ];
 
 export function Sidebar() {

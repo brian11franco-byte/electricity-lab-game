@@ -81,7 +81,14 @@ export function XPProvider({ children }: { children: React.ReactNode }) {
       if (raw) {
         const parsed = JSON.parse(raw) as XPState;
         if (parsed && parsed.stars) {
-          dispatch({ type: "hydrate", payload: { ...initialState, ...parsed } });
+          dispatch({
+            type: "hydrate",
+            payload: {
+              ...initialState,
+              ...parsed,
+              stars: { ...initialState.stars, ...parsed.stars },
+            },
+          });
         }
       }
     } catch {

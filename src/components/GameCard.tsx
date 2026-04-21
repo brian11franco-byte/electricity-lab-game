@@ -16,7 +16,7 @@ export function GameCard({
   subtitle: string;
   emoji: string;
   game: GameId;
-  tone?: "blue" | "yellow";
+  tone?: "blue" | "yellow" | "green";
 }) {
   const { stars } = useXP();
   const earned = stars[game];
@@ -32,7 +32,9 @@ export function GameCard({
             "flex h-14 w-14 items-center justify-center rounded-2xl text-3xl shadow-soft",
             tone === "blue"
               ? "bg-spark-100 text-spark-700"
-              : "bg-sun-200 text-slate-800",
+              : tone === "yellow"
+              ? "bg-sun-200 text-slate-800"
+              : "bg-emerald-100 text-emerald-700",
           ].join(" ")}
           aria-hidden
         >

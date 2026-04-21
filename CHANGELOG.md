@@ -7,12 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] — 2026-04-22
+
 ### Added
 - **Game 5 — Working Safely with Electricity** (`/games/safety`): Added a new True or False module for safety rules around electricity. Includes explanations for each statement.
 
 ### Changed
 - **Game 2 — The Electricity Journey** (`/games/sequencing`): Improved touch support by removing the touch activation delay and making the entire card draggable instead of restricting it to the small drag handle. Increased the size of the visual cues ("Step" badge and "Drag" label) to be more touch-friendly for kids.
 - **Game 3 — Switch Match** (`/games/matching`): Added Phase 2 sorting challenge. Students must now drag and drop common devices (like Ceiling Lights, Interactive Whiteboards, and Flashlights) into their respective switch type (Rocker, Press, or Slide). Expanded star points calculation to account for these additional challenges.
+- **Navigation**: Added "Working Safely" to the sidebar and fixed a hydration bug in `XPContext` that caused "NaN stars" when adding new game modules.
 
 ## [1.0.0] — 2026-04-21
 

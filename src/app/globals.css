@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #fdfbf7;
+  --spark: #1f6feb;
+  --sun: #ffcf1a;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: radial-gradient(
+      1200px 600px at 10% -10%,
+      rgba(31, 111, 235, 0.08),
+      transparent 60%
+    ),
+    radial-gradient(
+      800px 500px at 110% 10%,
+      rgba(255, 207, 26, 0.14),
+      transparent 60%
+    ),
+    var(--cream);
+  color: #1b2338;
+  font-family: ui-rounded, system-ui, -apple-system, "Segoe UI", Roboto,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Reusable glass surface */
+@layer components {
+  .glass {
+    @apply bg-white/60 backdrop-blur-md border border-white/70 shadow-glass rounded-2xl;
+  }
+
+  .glass-strong {
+    @apply bg-white/80 backdrop-blur-md border border-white/80 shadow-glass rounded-2xl;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-spark-500
+           px-5 py-2.5 text-white font-semibold shadow-soft
+           hover:bg-spark-600 active:scale-[0.98] transition;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           px-4 py-2 text-spark-700 font-semibold bg-white/70 border border-white
+           hover:bg-white transition;
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-white/80 border border-white
+           px-3 py-1 text-sm font-semibold text-spark-700 shadow-glass;
+  }
+
+  .chip {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-white/80
+           border border-white px-3 py-2 text-sm font-semibold text-slate-700
+           shadow-glass;
+  }
+}
+
+/* A friendly, slightly larger focus ring for young users */
+:focus-visible {
+  outline: 3px solid #1f6feb;
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+
+/* Dragging visual cue */
+.dragging {
+  cursor: grabbing;
+  transform: rotate(-1deg);
+}

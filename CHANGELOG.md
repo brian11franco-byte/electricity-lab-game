@@ -5,6 +5,11 @@ All notable changes to **Grade 2 Science: Electricity Interactive Labs** are doc
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+- **Game 2 — The Electricity Journey** (`/games/sequencing`): Improved touch support by removing the touch activation delay and making the entire card draggable instead of restricting it to the small drag handle. Increased the size of the visual cues ("Step" badge and "Drag" label) to be more touch-friendly for kids.
+
 ## [1.0.0] — 2026-04-21
 
 ### Added

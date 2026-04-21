@@ -17,7 +17,7 @@ import {
  * a progress picture — but the dashboard displays the total, too.
  */
 
-export type GameId = "sorting" | "sequencing" | "matching" | "sentence";
+export type GameId = "sorting" | "sequencing" | "matching" | "sentence" | "safety";
 
 export interface XPState {
   stars: Record<GameId, number>;
@@ -33,7 +33,7 @@ type XPAction =
 const STORAGE_KEY = "electricity-labs/xp/v1";
 
 const initialState: XPState = {
-  stars: { sorting: 0, sequencing: 0, matching: 0, sentence: 0 },
+  stars: { sorting: 0, sequencing: 0, matching: 0, sentence: 0, safety: 0 },
   bestStreak: 0,
 };
 
@@ -100,7 +100,8 @@ export function XPProvider({ children }: { children: React.ReactNode }) {
       state.stars.sorting +
       state.stars.sequencing +
       state.stars.matching +
-      state.stars.sentence,
+      state.stars.sentence +
+      state.stars.safety,
     [state.stars]
   );
 

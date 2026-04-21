@@ -88,6 +88,14 @@ export default function Dashboard() {
           game="sentence"
           tone="yellow"
         />
+        <GameCard
+          href="/games/safety"
+          title="Working Safely with Electricity"
+          subtitle="Learn the rules of electricity. Read the statement and guess if it's True or False."
+          emoji="🛡️"
+          game="safety"
+          tone="green"
+        />
       </section>
 
       {/* Helper */}

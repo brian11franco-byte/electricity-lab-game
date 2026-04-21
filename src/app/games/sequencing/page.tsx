@@ -81,9 +81,9 @@ export default function SequencingGame() {
   } | null>(null);
 
   const sensors = useSensors(
-    useSensor(PointerSensor, { activationConstraint: { distance: 4 } }),
+    useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
     useSensor(TouchSensor, {
-      activationConstraint: { delay: 120, tolerance: 6 },
+      activationConstraint: { distance: 5 },
     })
   );
 
@@ -141,7 +141,7 @@ export default function SequencingGame() {
           strategy={horizontalListSortingStrategy}
         >
           <div className="glass p-3 sm:p-5">
-            <div className="flex snap-x gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-4 sm:gap-4">
+            <div className="flex snap-x gap-3 overflow-x-auto pb-2 sm:grid sm:grid-cols-4 sm:gap-4 md:gap-6">
               {order.map((id, idx) => (
                 <SortableCard key={id} id={id} step={STEPS[id]} index={idx} />
               ))}
@@ -217,6 +217,7 @@ function SortableCard({
     transform: CSS.Transform.toString(transform),
     transition,
     opacity: isDragging ? 0.6 : 1,
+    zIndex: isDragging ? 10 : 1,
   };
 
   const src = generationImages[id];
@@ -225,30 +226,30 @@ function SortableCard({
     <div
       ref={setNodeRef}
       style={style}
-      className="glass-strong p-3 w-56 shrink-0 snap-start sm:w-auto"
+      {...listeners}
+      {...attributes}
+      className="glass-strong p-4 w-64 shrink-0 snap-start sm:w-auto cursor-grab active:cursor-grabbing touch-none select-none hover:shadow-md transition-shadow"
     >
-      <div className="flex items-center justify-between">
-        <span className="pill">Step {index + 1}</span>
-        <button
-          {...listeners}
-          {...attributes}
-          className="btn-ghost px-2 py-1 text-xs"
+      <div className="flex items-center justify-between mb-4">
+        <span className="pill text-sm sm:text-base font-bold bg-white/80">Step {index + 1}</span>
+        <div
+          className="rounded-full bg-slate-100/80 px-3 py-1 text-sm sm:text-base font-bold text-slate-600 shadow-sm"
           aria-label={`Move ${step.title}`}
         >
           ↔ Drag
-        </button>
+        </div>
       </div>
-      <div className="relative mx-auto mt-2 h-28 w-full sm:h-32">
+      <div className="relative mx-auto mt-2 h-32 w-full sm:h-40">
         <Image
           src={src}
           alt={step.title}
           fill
           sizes="180px"
-          className="object-contain"
+          className="object-contain pointer-events-none"
         />
       </div>
-      <h3 className="mt-2 font-bold text-slate-800">{step.title}</h3>
-      <p className="text-xs text-slate-600 sm:text-sm">{step.description}</p>
+      <h3 className="mt-4 text-base sm:text-lg font-bold text-slate-800">{step.title}</h3>
+      <p className="mt-1 text-sm sm:text-base text-slate-600">{step.description}</p>
     </div>
   );
 }

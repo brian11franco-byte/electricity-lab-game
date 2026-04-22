@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { AppShell } from "@/components/AppShell";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Electricity Labs • Grade 2 Science",
@@ -23,6 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen">
         <AppShell>{children}</AppShell>
+        <Analytics />
       </body>
     </html>
   );

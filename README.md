@@ -10,12 +10,14 @@ A small Next.js web app that gives Grade 2 learners four playful ways to explore
 
 ## What is inside
 
-A friendly dashboard and four mini-games:
+A friendly dashboard and six mini-games:
 
 1. **Sort the Power** — drag-and-drop devices into *Mains*, *Cells*, or *Non-electrical*.
 2. **The Electricity Journey** — put the *Power station → Transmission lines → Distribution lines → House* sequence in order.
 3. **Switch Match** — tap-to-match *Press*, *Rocker*, and *Slide* switches with their names and everyday examples.
 4. **Finish the Sentence** — drag words from a word bank into nine short sentences.
+5. **Working Safely** — true or false module for safety rules around electricity.
+6. **Circuit Builder** — an interactive canvas to build circuits with batteries, bulbs, switches, and wires, powered by a realistic simulation engine.
 
 A simple star counter (shown in the top bar and on the dashboard) grows as students make correct moves. It is saved in the browser so a student's stars stay even after a reload.
 
@@ -62,7 +64,9 @@ electricity-labs/
 │   │       ├── sorting/      # Game 1
 │   │       ├── sequencing/   # Game 2
 │   │       ├── matching/     # Game 3
-│   │       └── sentence/     # Game 4
+│   │       ├── sentence/     # Game 4
+│   │       ├── safety/       # Game 5
+│   │       └── builder/      # Game 6
 │   ├── components/
 │   │   ├── AppShell.tsx
 │   │   ├── Sidebar.tsx
@@ -84,9 +88,9 @@ electricity-labs/
 
 ## Global state (how the stars are tracked)
 
-All four games read and write to a single React context, `XPContext`:
+All six games read and write to a single React context, `XPContext`:
 
-- Stars are stored per game (`sorting`, `sequencing`, `matching`, `sentence`) so each page can show its own progress, and the dashboard adds them up.
+- Stars are stored per game (`sorting`, `sequencing`, `matching`, `sentence`, `safety`, `builder`) so each page can show its own progress, and the dashboard adds them up.
 - The reducer supports three actions: `add`, `set`, and `reset`.
 - On mount, the context hydrates from `localStorage` under the key `electricity-labs/xp/v1`. Every change is persisted again automatically.
 - The top navigation bar shows the running total via the `<StarBadge/>` component.
@@ -161,7 +165,7 @@ The app was built so other primary educators can reshape it without diving deep 
 
 - **Swap images:** replace files in `/public` and, if needed, rename the keys in `src/lib/assets.ts`.
 - **Change wording:** sentences and labels live at the top of each game's `page.tsx` in a single `SENTENCES`, `ITEMS`, `STEPS`, or `SWITCHES` array. Edit these arrays to match your vocabulary list.
-- **Add a new game:** duplicate any of the four folders in `src/app/games/` and add a matching link to `NAV` in `src/components/Sidebar.tsx` and a new `<GameCard/>` to `src/app/page.tsx`. Remember to add a new key to `XPContext`'s `GameId` type and `stars` object.
+- **Add a new game:** duplicate any of the folders in `src/app/games/` and add a matching link to `NAV` in `src/components/Sidebar.tsx` and a new `<GameCard/>` to `src/app/page.tsx`. Remember to add a new key to `XPContext`'s `GameId` type and `stars` object.
 - **Recolour the theme:** update the `spark`, `sun`, and `cream` tokens in `tailwind.config.ts`. All components use these classes, so one edit restyles the whole app.
 
 ---

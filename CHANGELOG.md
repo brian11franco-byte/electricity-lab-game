@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] — 2026-04-25
+
+### Added
+- **Circuit Simulation Engine**: Integrated a robust electrical circuit solver (`circuitSolver.ts`) to calculate real-world values like current, voltage, and power using Ohm's Law.
+- **Component Behaviors & Failures**: Enabled component-specific logic including overload detection and component failure (e.g., blown bulbs) based on maximum current thresholds.
+- **Live UI Updates**: The UI now accurately reflects physical state changes such as bulbs blowing out from too much current.
+- **Simulation Continuity**: Maintained full compatibility with the existing magnetic snapping and mobile-responsive drag-and-drop systems.
+
+### Changed
+- Replaced the previous DFS-based connection check with the new solver architecture to provide realistic simulation outcomes.
+
+## [1.2.0] — 2026-04-24
+
+### Added
+- **Major Circuit Builder Upgrade (Phase 1-3)**: 
+    - Maximized canvas workspace to fill the entire screen.
+    - New skeuomorphic component design with premium aesthetics.
+    - **Phet-Style Bulb**: Redesigned Bulb icon with realistic metallic base and dynamic raytracing effects that scale with power intensity.
+    - Added **Switch** component with toggle functionality.
+    - **Physical Wires**: Wires are now draggable objects with endpoints that snap to component terminals.
+    - **Magnetic Snapping**: Components can now be dragged directly next to one another. Their terminals will magnetically snap, creating a valid, wire-free connection!
+    - Expanded **Gamified Missions**: 5 Interactive challenges including lighting a bulb, adding a switch, using 2 batteries, wire-free connections, and buzzers.
+    - **Live Status Panel**: Friendly student feedback if the circuit is broken or working.
+    - Removed **Resistor** to adapt the tool perfectly for Grade 2 curriculum.
+
+
 ## [1.1.0] — 2026-04-22
 
 ### Added

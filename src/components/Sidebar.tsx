@@ -18,6 +18,7 @@ const NAV: NavItem[] = [
   { href: "/games/matching", label: "Switch Match", icon: "🔘" },
   { href: "/games/sentence", label: "Finish the Sentence", icon: "✍️" },
   { href: "/games/safety", label: "Working Safely", icon: "🛡️" },
+  { href: "/games/builder", label: "Circuit Builder", icon: "💡" },
 ];
 
 export function Sidebar() {

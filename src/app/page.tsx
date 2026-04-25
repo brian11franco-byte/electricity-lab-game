@@ -96,6 +96,14 @@ export default function Dashboard() {
           game="safety"
           tone="green"
         />
+        <GameCard
+          href="/games/builder"
+          title="Circuit Builder"
+          subtitle="Drag wires, bulbs, and batteries to build your own working circuit!"
+          emoji="💡"
+          game="builder"
+          tone="blue"
+        />
       </section>
 
       {/* Helper */}
